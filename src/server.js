@@ -12,17 +12,16 @@ const server = http.createServer((req, res) => {
   }
 
   if (method === "PUT" && url === "/users") {
-
     user.push({
       id: 1,
       name: "John Don",
       email: "johndon@example.com"
     })
 
-    return res.end("Usuário criado com sucesso")
+    return res.writeHead(201).end()
   }
 
-  return res.end("Hello World")
+  return res.writeHead(404).end()
 })
 
 server.listen(3000)
